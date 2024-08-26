@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <body>
+    <div id="userGoal">
+    <h1>Events in action</h1>
+    <button v-on:click="add()">add</button>
+    <button v-on:click="remove()">remove</button>
+    <p>result:{{counter}}</p>
+  </div>
+  
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+    <script>
+ const app = Vue.createApp({
+  data(){
+    return{
+       counter:0,
+    };
+  },
+  methods:{
+    add(){
+    this.counter++;
+    },
+    remove(){
+    this.counter--;
+    }
+  }
+ });
+ app.mount('#userGoal');
+    </script>
+    <script src="index.js"></script>
+  </body>
+  </html>
+  
