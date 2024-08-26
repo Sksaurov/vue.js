@@ -9,8 +9,8 @@
   <body>
     <div id="userGoal">
     <h1>Events in action</h1>
-    <button v-on:click="add()">add</button>
-    <button v-on:click="remove()">remove</button>
+    <button v-on:click="add">add</button>
+    <button v-on:click="remove">remove</button>
     <p>result:{{counter}}</p>
   </div>
   
