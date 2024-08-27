@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+  <body>
+     <header>
+      <h1>Vue Dynamic Styling</h1>
+     </header>
+     <section id="styling">
+      <h2>My course Goal</h2>
+      <input type="text" v-model="enteredGoalValue" >
+      <button @click="addGoal" >add goal</button>
+      <p v-if="goals.length===0" >no goals yet try to add some</p>
+
+      <ul v-if="goals.length>0">
+        <li v-for="goal in goals">{{goal}}</li>
+      </ul>
+     </section>
+    
+  
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+    <script>
+     const app = Vue.createApp({
+      data(){
+        return{
+          enteredGoalValue:'',
+         goals:[]
+        };
+      },
+        methods:{
+         addGoal(){
+          this.goals.push(this.enteredGoalValue);
+         }
+        }
+     
+     });
+      
+      app.mount('#styling');
+    </script>
+    <script src="index.js"></script>
+  </body>
+  </html>
