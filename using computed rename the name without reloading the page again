@@ -1,0 +1,56 @@
+<div id="userGoal">
+    <h1>Events in action</h1>
+    <button v-on:click="add">add</button>
+    <button v-on:click="remove">remove</button>
+    <p>result:{{counter}}</p>
+    <input type="text" v-model="name" >
+    <p>your name:{{ fullname }}</p>
+    <button v-on:click="resetName">reset</button>
+    <form action=""v-on:submit.prevent="preventdefaultForm">
+      <input type="text"  >
+      <button>signup</button>
+    </form>
+  </div>
+  
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+    <script>
+ const app = Vue.createApp({
+  data(){
+
+    return{
+       counter:0,
+       name:'',
+    };
+  },
+  computed: {
+  fullname() {
+    if (this.name === '') {
+      return '';
+    }
+    return this.name + ' ' + 'Karmokar';
+  }
+}
+
+  methods:{
+    resetName(){
+    this.name='';
+    },
+    preventdefaultForm(){
+      alert('submitted');
+    },
+    setName(e){
+     this.name =e.target.value;
+    },
+    add(){
+    this.counter++;
+    },
+    remove(){
+    this.counter--;
+    }
+  }
+ });
+ app.mount('#userGoal');
+    </script>
+    <script src="index.js"></script>
+  </body>
+  </html>
