@@ -18,7 +18,7 @@
       <p v-if="goals.length===0" >no goals yet try to add some</p>
 
       <ul v-if="goals.length>0">
-        <li v-for="goal in goals">{{goal}}</li>
+        <li v-for="(goal,index) in goals" :key="goal" @click="removeGoal()" >{{goal}}-{{index}}</li>
       </ul>
      </section>
     
@@ -35,6 +35,9 @@
         methods:{
          addGoal(){
           this.goals.push(this.enteredGoalValue);
+         },
+         removeGoal(index){
+         this.goals.splice(index,1);
          }
         }
      
@@ -45,3 +48,7 @@
     <script src="index.js"></script>
   </body>
   </html>
+  
+    
+  
+   
