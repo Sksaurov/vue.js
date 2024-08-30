@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+</head>
+<body>
+  <div id="hello">
+    <input type="text" @input="saveInput">
+    <button @click="setText">set</button>
+    <p>{{ message }}</p>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          currentUserInput: "",
+          message: "",
+        };
+      },
+      methods: {
+        saveInput(event) {
+          this.currentUserInput = event.target.value;
+        },
+        setText() {
+          this.message = this.currentUserInput;
+        },
+      },
+    }).mount("#hello");
+  </script>
+</body>
+
+</html>
